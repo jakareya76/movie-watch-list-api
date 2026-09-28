@@ -3,6 +3,7 @@ import { config } from "dotenv";
 import { connectDB, disconnectDB } from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
 import watchlistRoutes from "./routes/watchlistRoutes.js";
+import movieRoutes from "./routes/movieRoutes.js";
 
 config();
 connectDB();
@@ -16,6 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 // API Routes
 app.use("/auth", authRoutes);
 app.use("/watchlist", watchlistRoutes);
+app.use("/movies", movieRoutes);
 
 const server = app.listen(PORT, () => {
   console.log(`Server is running on port: ${PORT}`);
